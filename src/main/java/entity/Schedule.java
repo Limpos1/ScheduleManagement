@@ -16,6 +16,8 @@ public class Schedule {
     private String date;
     private String fix_date;
 
+    public Schedule() {}
+
     public Schedule(Requestdto a) {
         this.task = a.getTask();
         this.password = a.getPassword();

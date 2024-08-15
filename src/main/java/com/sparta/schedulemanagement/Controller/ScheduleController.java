@@ -139,4 +139,34 @@ public class ScheduleController {
         }
     }
 
+    @PutMapping("/modify")
+    public Long taskmodify(@ModelAttribute Requestdto requestdto){
+        Schedule schedule = findId(requestdto.getId());
+        if(schedule!=null){
+            String sql = "UPDATE schedule SET task=?,managername=? ,fix_date=NOW() WHERE id=? AND password=?";
+            jdbcTemplate.update(sql, requestdto.getTask(),requestdto.getManagername(),requestdto.getId(),requestdto.getPassword());
+
+            return requestdto.getId();
+        }
+        else{
+            throw new IllegalArgumentException("해당 일정은 없습니다.");
+        }
+
+    }
+
+    private Schedule findId(Long id){
+        String sql = "SELECT * FROM schedule WHERE id=?";
+
+        return jdbcTemplate.query(sql, resultSet->{
+            if(resultSet.next()){
+                Schedule s = new Schedule();
+                s.setTask(resultSet.getString("task"));
+                s.setManagername(resultSet.getString("managername"));
+                return s;
+            }else{
+                return null;
+            }
+        },id);
+    }
+
 }
