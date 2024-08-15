@@ -1,5 +1,9 @@
 # ScheduleManagement
 
+ERD : https://www.erdcloud.com/d/5RTAP4Tm9PwNuRhe4
+
+-------------------------------------------------------------
+
 일정 등록 요청 API
 POST /schedule/regist
 {
