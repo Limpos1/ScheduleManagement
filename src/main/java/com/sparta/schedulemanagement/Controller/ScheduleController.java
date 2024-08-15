@@ -154,6 +154,21 @@ public class ScheduleController {
 
     }
 
+    @DeleteMapping("/delete")
+    public Long taskdelete(@ModelAttribute Requestdto requestdto){
+        Schedule schedule = findId(requestdto.getId());
+
+        if(schedule!=null){
+            String sql = "DELETE FROM schedule WHERE id=? AND password=?";
+            jdbcTemplate.update(sql,requestdto.getId(),requestdto.getPassword());
+
+            return requestdto.getId();
+        }
+        else{
+            throw new IllegalArgumentException("해당 일정은 없습니다.");
+        }
+    }
+
     private Schedule findId(Long id){
         String sql = "SELECT * FROM schedule WHERE id=?";
 
