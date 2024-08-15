@@ -10,6 +10,7 @@ public class Requestdto {
     private String managername;
     private String password;
     private String task;
+    private String fix_date;
 
     public Requestdto(String managername, String password, String task) {
         this.managername = managername;

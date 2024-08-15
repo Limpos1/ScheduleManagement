@@ -20,6 +20,7 @@ public class Schedule {
         this.task = a.getTask();
         this.password = a.getPassword();
         this.managername = a.getManagername();
+        this.fix_date = a.getFix_date();
     }
 
 

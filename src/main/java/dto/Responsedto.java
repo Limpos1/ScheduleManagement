@@ -15,6 +15,8 @@ public class Responsedto {
     private String date;
     private String fix_date;
 
+
+    public Responsedto() {}
     public Responsedto(Schedule schedule) {
         this.id = schedule.getId();
         this.task = schedule.getTask();
