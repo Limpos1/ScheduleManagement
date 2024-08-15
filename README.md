@@ -52,9 +52,9 @@ GET /schedule/condition
 응답
 {
   "id":1,
-  "task":"할일"
-  "managername":"담당자이름"
-  "date":"2024-08-15 14:32"
+  "task":"할일",
+  "managername":"담당자이름",
+  "date":"2024-08-15 14:32",
   "fix_date":"2024-08-15 14:32"
 }
 
@@ -64,12 +64,20 @@ GET /schedule/condition
 
 PUT /schedule/modify
 {
-  "task":"수정할 일정 쓰기"
-  "managername":"변경할 매니저 이름"
-  "id":"변경할 일정 번호"
+  "task":"수정할 일정 쓰기",
+  "managername":"변경할 매니저 이름",
+  "id":"변경할 일정 번호",
   "password":"일정의 비밀번호와 일치해야 변경가능"
 }
 
+---------------------------------------------
 
+일정 삭제하기
+
+DELETE /schedule/delete
+{
+  "id":1,
+  "password":"1234"
+}
 
 
