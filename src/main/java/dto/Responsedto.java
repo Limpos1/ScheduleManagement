@@ -2,10 +2,12 @@ package dto;
 
 import entity.Schedule;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
 @Getter
+@Setter
 public class Responsedto {
     private long id;
     private String task;

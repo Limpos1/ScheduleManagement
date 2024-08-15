@@ -53,4 +53,20 @@ public class ScheduleController {
 
     }
 
+    @GetMapping("/inquiry")
+    public Responsedto taskinquiry(@ModelAttribute Requestdto requestdto){
+        String sql = "SELECT * FROM schedule WHERE id=?";
+
+        Map<String, Object> result = jdbcTemplate.queryForMap(sql,requestdto.getId());
+        long id = (long)result.get("id");
+        String task = (String)result.get("task");
+        String managername = (String)result.get("managername");
+        LocalDateTime date = (LocalDateTime)result.get("date");
+        LocalDateTime fix_date = (LocalDateTime)result.get("fix_date");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        Responsedto responsedto = new Responsedto(id,task,managername,date.format(formatter),fix_date.format(formatter));
+        return responsedto;
+    }
+
 }
